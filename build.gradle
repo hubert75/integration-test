@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'net.ltgt.apt-idea' version "0.15"
+}
+
+group 'com.binarapps'
+
+targetCompatibility = 11
+sourceCompatibility = 11
+
+repositories {
+    jcenter()
+}
+
+ext {
+    ver = [
+        retrofit        : '2.4.0',
+        okhttp3         : '3.11.0',
+        okio            : '1.0.0',
+        autovalue       : '1.6.2',
+        gson_autovalue  : '1.0.0',
+        dagger          : '2.16'
+    ]
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-simple:1.7.26'
+    implementation 'com.google.guava:guava:23.0'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    
+    implementation 'com.sparkjava:spark-core:2.8.0'
+    implementation 'com.typesafe:config:1.3.4'
+    implementation 'javax.inject:javax.inject:1'
+
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: ver.retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: ver.retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: ver.retrofit
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp-tls', version: ver.okhttp3
+    implementation group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: ver.okhttp3
+    implementation group: 'com.squareup.okio', name: 'okio', version: ver.okio
+
+    implementation group: 'com.google.auto.value', name: 'auto-value-annotations', version: ver.autovalue
+    annotationProcessor group: 'com.google.auto.value', name: 'auto-value', version: ver.autovalue
+    
+    implementation group: 'com.ryanharter.auto.value', name: 'auto-value-gson-runtime', version: ver.gson_autovalue
+    annotationProcessor group: 'com.ryanharter.auto.value', name: 'auto-value-gson', version: ver.gson_autovalue
+    implementation group: 'com.google.dagger', name: 'dagger', version: ver.dagger
+    annotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: ver.dagger
+    
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.12.2'
+}
+
