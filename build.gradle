@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
     id 'idea'
     id 'net.ltgt.apt-idea' version "0.15"
 }
@@ -52,3 +53,6 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.12.2'
 }
 
+application {
+    mainClassName = 'com.binarapps.integrationtest.Application'
+}
