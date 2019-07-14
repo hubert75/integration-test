@@ -51,8 +51,12 @@ dependencies {
     
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.assertj:assertj-core:3.12.2'
+    testCompile "com.github.tomakehurst:wiremock-jre8:2.23.2"
 }
 
 application {
     mainClassName = 'com.binarapps.integrationtest.Application'
+}
+test {
+    useJUnit()
 }

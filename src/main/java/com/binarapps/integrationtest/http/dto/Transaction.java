@@ -4,14 +4,18 @@ import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 
+import javax.annotation.Nullable;
+
 @AutoValue
 public abstract class Transaction {
     public abstract String transactionId();
 
     public abstract String bookedDate();
 
+    @Nullable
     public abstract String debtorAccountId();
 
+    @Nullable
     public abstract String creditorAccountId();
 
     public abstract Payment payment();

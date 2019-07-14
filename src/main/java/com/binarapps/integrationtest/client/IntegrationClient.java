@@ -1,23 +1,24 @@
 package com.binarapps.integrationtest.client;
 
-import static java.util.Collections.emptyList;
-
+import com.binarapps.integrationtest.http.dto.PageIndexRequest;
 import com.binarapps.integrationtest.http.dto.PagedList;
-import com.binarapps.integrationtest.http.dto.Transaction;
+import com.binarapps.integrationtest.http.utils.TransactionsToPagedListMapper;
 import io.reactivex.Single;
 
-import java.util.Optional;
 
 public class IntegrationClient {
     private final RetrofitApi api;
 
-    public IntegrationClient(RetrofitApi api) {
+    private final TransactionsToPagedListMapper mapper;
+
+    public IntegrationClient(RetrofitApi api, TransactionsToPagedListMapper mapper) {
         this.api = api;
+        this.mapper = mapper;
     }
 
-    public Single<PagedList<Transaction>> getTransactions(
-            String accountId,
-            Optional<String> pageIndex) {
-        return Single.just(PagedList.create("", emptyList()));
+    public Single<PagedList> getTransactions(String accountId, Integer pageSize, PageIndexRequest indexRequest) {
+        return api.getTransactions(accountId, indexRequest.pageIndex())
+                .map(mapper.mapTransactionsToPagedList(indexRequest.offsetIndex(), pageSize));
     }
+
 }

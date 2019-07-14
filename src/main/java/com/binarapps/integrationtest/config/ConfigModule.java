@@ -17,6 +17,12 @@ public class ConfigModule {
     @Provides
     @Singleton
     ServerConfig provideServerConfig() {
-        return ServerConfig.create(config.getConfig("server"));
+        return ServerConfig.create(config);
+    }
+
+    @Provides
+    @Singleton
+    BusinessConfig provideBusinessConfig() {
+        return BusinessConfig.create(config);
     }
 }

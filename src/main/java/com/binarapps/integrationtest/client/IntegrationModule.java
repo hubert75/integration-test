@@ -1,5 +1,9 @@
 package com.binarapps.integrationtest.client;
 
+import com.binarapps.integrationtest.config.BusinessConfig;
+import com.binarapps.integrationtest.http.utils.AutoValueGsonFactory;
+import com.binarapps.integrationtest.http.utils.PageIndexTransformer;
+import com.binarapps.integrationtest.http.utils.TransactionsToPagedListMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dagger.Module;
@@ -12,12 +16,13 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 @Module
 public class IntegrationModule {
     @Provides
     @Singleton
-    IntegrationClient provideIntegrationClient(RetrofitApi api) {
-        return new IntegrationClient(api);
+    IntegrationClient provideIntegrationClient(RetrofitApi api, TransactionsToPagedListMapper mapper) {
+        return new IntegrationClient(api, mapper);
     }
 
     @Provides
@@ -29,7 +34,11 @@ public class IntegrationModule {
     @Provides
     @Singleton
     Gson provideGson() {
-        return new GsonBuilder().create();
+        return new GsonBuilder()
+                .registerTypeAdapterFactory(AutoValueGsonFactory.create())
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
     }
 
     @Provides
@@ -40,12 +49,24 @@ public class IntegrationModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(OkHttpClient client, Gson gson) {
+    Retrofit provideRetrofit(OkHttpClient client, Gson gson, BusinessConfig serverConfig) {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("http://localhost:8080/")
+                .baseUrl(serverConfig.retrofitBaseUrl())
                 .client(client)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    PageIndexTransformer providePageIndexTransformer(){
+        return new PageIndexTransformer();
+    }
+
+    @Provides
+    @Singleton
+    TransactionsToPagedListMapper provideMapper(){
+        return new TransactionsToPagedListMapper();
     }
 }

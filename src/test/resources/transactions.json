@@ -1,0 +1,102 @@
+[
+  {
+    "transactionId": "cdf3758d-ca17-4182-baf3-0ce0dd74776f",
+    "bookedDate": "2019-07-01",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "8.80"
+    }
+  },
+  {
+    "transactionId": "ddc09541-0395-4cee-ad54-f2a1286f81ff",
+    "bookedDate": "2019-08-02",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "44.52"
+    }
+  },
+  {
+    "transactionId": "5c2bbb54-7515-4360-beb8-b70b27d479ff",
+    "bookedDate": "2019-07-22",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "13.31"
+    }
+  },
+  {
+    "transactionId": "4c740465-fa7a-466d-9c66-b8f5f367b301",
+    "bookedDate": "2019-08-17",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "15.99"
+    }
+  },
+  {
+    "transactionId": "b001dbc1-e1b2-4b73-bbea-6ced73881f7e",
+    "bookedDate": "2019-07-16",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "18.73"
+    }
+  },
+  {
+    "transactionId": "a6109c86-12bb-4f00-b398-66ae3f6ef2c3",
+    "bookedDate": "2019-08-22",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "60.76"
+    }
+  },
+  {
+    "transactionId": "41172301-188a-400e-a934-73b783af9785",
+    "bookedDate": "2019-08-20",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "55.33"
+    }
+  },
+  {
+    "transactionId": "711607c0-0632-4c0d-88e9-34aa0732478f",
+    "bookedDate": "2019-07-02",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "92.98"
+    }
+  },
+  {
+    "transactionId": "a9f376aa-3903-43b0-9a14-5da8921ab163",
+    "bookedDate": "2019-07-16",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "59.30"
+    }
+  },
+  {
+    "transactionId": "42422bd4-8de0-4392-b03b-da631ae21ae3",
+    "bookedDate": "2019-07-21",
+    "debtorAccountId": null,
+    "creditorAccountId": null,
+    "payment": {
+      "currency": "EUR",
+      "amount": "13.5"
+    }
+  }
+]
